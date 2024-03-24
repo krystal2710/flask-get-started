@@ -40,7 +40,7 @@ def register():
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
-    if session['user_id'] is not None:
+    if 'user_id' in session and session['user_id'] is not None:
         return redirect(url_for('index'))
     if request.method == 'POST':
         username = request.form['username']
